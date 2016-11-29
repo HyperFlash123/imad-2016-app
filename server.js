@@ -70,10 +70,21 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
+var counter=0;
+app.get('/counter',function(req,res){
+    counter=counter+1;
+    res.send(counter.toString());
+});
+
+var names=[];
+app.get('/submit-none',function(req,res){
+    var name=req.query.name;
+    names.push(name);
+    res.send(JSON.stringify(names));
+});
+
 app.get('/articleName', function (req, res) {
-    
-  
-  var articleName = res.params.articleName;  
+    var articleName = res.params.articleName;  
   res.send(createTemplate(articles[articleName]));
 });
 
@@ -88,7 +99,6 @@ app.get('/ui/main.js', function (req, res) {
 app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
-
 
 var port = 8080; 
 app.listen(8080, function () {
