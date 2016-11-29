@@ -12,33 +12,20 @@ var articles={
         heading:'Article One',
         date: 'Sep 5 2016',
         content:
-            <p>
-                its my birthday
-            </p>
-        
-    
-        
-        
-        
-        
+           '<p>its my birthday</p>'
     },
     'article-two':{
         title: 'Article Two | Lavanya',
         heading:'Article Two',
         date: 'Sep 10 2016',
         content:
-            <p>
-                its not my birthday
-            </p>
+            '<p>its not my birthday</p>'
     },
     'article-three':{
         title: 'Article Three | Lavanya',
         heading:'Article Three',
         date: 'Sep 15 2016',
-        content:
-            <p>
-                its not my birthday hee
-            </p>
+        content:'<p>its not my birthday hee</p>'
     }
 };
 
