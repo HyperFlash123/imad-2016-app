@@ -8,7 +8,7 @@ var config={
     database:'hyperflash123',
     host:'db.imad.hasura-app.io',
     port:'5432',
-    password:process.env.DB_PASSWORD
+    password:'db-hyperflash123-32058'
 };
 
 var app = express();
