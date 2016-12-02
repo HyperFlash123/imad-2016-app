@@ -8,7 +8,7 @@ var config={
     database:'hyperflash123',
     host:'db.imad.hasura-app.io',
     port:'5432',
-    password: process.env.DB_PASSWORD
+    password:process.env.DB_PASSWORD
 };
 
 var app = express();
@@ -61,7 +61,12 @@ app.get('/test-db', function (req, res) {
         if(err){
             res.send(500).send(err.toString());
         }else{
-           res.send(JSON.stringify(result));
+            if(result.rows.length===0){
+                res.send(404).send('Article not found');
+            }else {
+                var articleData=result.rows[0];
+                res.send(createTemplate(articleData));
+            }
         }
     });
 });
@@ -79,7 +84,7 @@ app.get('/submit-name',function(req,res){
     names.push(name);
     res.send(JSON.stringify(names));
 });
-
+/*
 app.get('/articles/:articleName', function (req, res) {
     pool.query("SELECT * FROM article WHERE title = $1",[req.params.articleName],function(err,result){
         if(err){
@@ -93,7 +98,7 @@ app.get('/articles/:articleName', function (req, res) {
             }
         }
     });
-});
+});*/
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
