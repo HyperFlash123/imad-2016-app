@@ -56,21 +56,15 @@ app.get('/', function (req, res) {
 });
 
 var pool=new Pool(config);
-app.get('/test-db', function (req, res) {
+app.get('/testdb', function (req, res) {
     pool.query("SELECT * FROM test",function(err,result){
         if(err){
             res.send(500).send(err.toString());
         }else{
-            if(result.rows.length===0){
-                res.send(404).send('Article not found');
-            }else {
-                var articleData=result.rows[0];
-                res.send(createTemplate(articleData));
-            }
+           res.send(JSON.stringify(names));
         }
     });
 });
-
 
 var counter=0;
 app.get('/counter',function(req,res){
