@@ -83,7 +83,7 @@ app.get('/submit-none',function(req,res){
     res.send(JSON.stringify(names));
 });
 
-app.get('/articleName', function (req, res) {
+app.get('/:articleName', function (req, res) {
     var articleName = res.params.articleName;  
   res.send(createTemplate(articles[articleName]));
 });
