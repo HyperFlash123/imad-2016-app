@@ -1,4 +1,4 @@
-var button=document.getElementById('counter');
+/*var button=document.getElementById('counter');
 button.onclick=function(){
     var request=new XMLHttpRequest();
     request.onreadystatechange=function(){
@@ -26,4 +26,17 @@ submit.onclick=function(){
     var ul=document.getElementById('namelist');
     ul.innerHTML=list;
     
-};
+};*/
+
+console.log('Loaded!');
+var element=document.getElementById('main-text');
+element.innerHTML='New value';
+var img=document.getElementById('madi');
+var marginLeft=0;
+function moveR(){
+    marginLeft=marginLeft+10;
+    img.style.marginLeft=marginLeft+'px';
+}
+img.onclick=function(){
+    var interval=setInterval(moveR,100);
+}
