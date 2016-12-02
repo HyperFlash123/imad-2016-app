@@ -39,4 +39,4 @@ function moveR(){
 }
 img.onclick=function(){
     var interval=setInterval(moveR,100);
-}
+};
